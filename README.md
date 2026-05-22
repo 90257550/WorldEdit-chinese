@@ -1,85 +1,54 @@
 <h1>
-    <img src="worldedit-logo.svg" alt="WorldEdit" width="400" /> 
+    <img src="worldedit-logo.svg" alt="WorldEdit" width="400" />
 </h1>
 
-**A Minecraft Map Editor... that runs in-game!**
+**WorldEdit，但是汉化版。**
 
-* With selections, schematics, copy and paste, brushes, and scripting!
-* Use it in creative, survival in single player or on your server.
-* Use it on your Minecraft server to fix griefing and mistakes.
+本仓库是 [EngineHub/WorldEdit](https://github.com/EngineHub/WorldEdit) 的简体中文本地化分支，在原版基础上新增了 `strings_zh_CN.json` 语言文件，其余代码保持不变。
 
-Java Edition required. WorldEdit is compatible with NeoForge, Fabric, Bukkit, Spigot, Paper, and Sponge.
+> 原版 WorldEdit 是一款运行在游戏内的 Minecraft 地图编辑器，支持选区、原理图、复制粘贴、笔刷与脚本等功能，可在创造/生存模式的单人或服务器中使用。
 
-## Download WorldEdit
+## 下载
 
-This place contains the Java code for WorldEdit, but if you want to just use WorldEdit, get the mod or plugin from Modrinth:
+如需直接使用（无需汉化），请从 Modrinth 获取官方版本：
 
 https://modrinth.com/plugin/worldedit/versions
 
-Edit the Code
----------
+如需使用汉化版，请在本仓库 [Releases](../../releases) 页面下载，或自行从源码构建。
 
-Want to add new features to WorldEdit or fix bugs yourself? You can get the game running, with WorldEdit, from the code here, without any additional outside steps, by doing the following *four* things:
+## 汉化说明
 
-1. Download WorldEdit's source code and put it somewhere. We recommend you use something called Git if you already know how to use it, but [you can also just download a .zip file](https://github.com/EngineHub/WorldEdit/archive/master.zip). (If you plan on contributing the changes, you will need to figure out Git.)
-2. Install any version of Java greater than or equal to 21.
-   * Note that if you do _not_ install JDK 21 exactly, Gradle will download it for you on first run. However, it is still required to have some form of Java installed for Gradle to start at all.
-3. Open terminal / command prompt / bash and navigate to the directory where you put the source code.
-4. Run **one** of these following commands:
-   * Mac OS X / Linux: `./gradlew :worldedit-fabric:runClient`
-   * Windows - Command Prompt: `gradlew :worldedit-fabric:runClient`
-   * Windows - PowerShell: `.\gradlew :worldedit-fabric:runClient`
+| 文件 | 说明 |
+|------|------|
+| `worldedit-core/src/main/resources/lang/strings_zh_CN.json` | 简体中文翻译，覆盖全部界面字符串 |
 
-🎉 That's it. 🎉 It takes a long time to actually transform WorldEdit into a mod. If it succeeds, **the Minecraft game will open and you can create a single player world with WorldEdit**.
+服务端启用方式：在 JVM 启动参数中添加 `-Duser.language=zh -Duser.country=CN`，WorldEdit 会自动加载中文语言文件。
 
-When you make changes to the code, you have to restart the game by re-running the command for your changes to take effect. If there are errors in your Java syntax, the command will fail.
+## 从源码构建
 
-For additional information about compiling WorldEdit, see [COMPILING.md](COMPILING.md).
+需要 Java 21+，在项目根目录执行：
 
-### Using a Java IDE
+```
+# Linux / macOS
+./gradlew :worldedit-bukkit:build
 
-To edit WorldEdit in a Java IDE, follow these steps:
+# Windows（命令提示符）
+gradlew :worldedit-bukkit:build
 
-1. Download and install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/).
-2. In the IDE, open the folder that you saved WorldEdit's code in. This creates a new project in IDEA.
+# Windows（PowerShell）
+.\gradlew :worldedit-bukkit:build
+```
 
-That's pretty much it.
+详细说明参见 [COMPILING.md](COMPILING.md)。
 
-If you want to be able to run the game also, follow these instructions:
+## 相关链接
 
-1. Go to Run -> Edit Configurations.
-2. Add a Gradle task:
-   1. Choose `worldedit-fabric` for the project.
-   2. For the tasks, type in `runClient`
-3. Click OK
-4. Under the Run menu again, go to "Debug [your new task]".
+* [官方网站](https://enginehub.org/)
+* [Discord 社区](https://discord.gg/enginehub)
+* [问题追踪（原版）](https://github.com/EngineHub/WorldEdit/issues)
+* [持续集成](https://builds.enginehub.org) [![Build Status](https://ci.enginehub.org/app/rest/builds/buildType:bt10,branch:master/statusIcon.svg)](https://ci.enginehub.org/viewType.html?buildTypeId=bt10&guest=1)
+* [官方文档](https://worldedit.enginehub.org/en/latest/)
 
-### Speeding up the Edit-Test-Edit-Test Cycle
+## 许可证
 
-It's a little annoying have to restart the game to test your changes. The best way to reduce the time is to run the server instead (using `runServer` instead of `runClient`) and then reconnect to the server after restarting it.
-
-Submitting Your Changes
-------------
-
-WorldEdit is open source (specifically licensed under GPL v3), so note that your contributions will also be open source. The best way to submit a change is to create a fork on GitHub, put your changes there, and then create a "pull request" on our WorldEdit repository.
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for important guidelines to follow.
-
-Links
------
-
-* [Visit our website](https://enginehub.org/)
-* [Discord](https://discord.gg/enginehub)
-* [Issue tracker](https://github.com/EngineHub/WorldEdit/issues)
-* [Continuous integration](https://builds.enginehub.org) [![Build Status](https://ci.enginehub.org/app/rest/builds/buildType:bt10,branch:master/statusIcon.svg)](https://ci.enginehub.org/viewType.html?buildTypeId=bt10&guest=1)
-* [End-user documentation](https://worldedit.enginehub.org/en/latest/)
-
-Supporters
-----------
-
-[![YourKit Logo](https://www.yourkit.com/images/yklogo.png)](https://www.yourkit.com/)
-
-YourKit supports open source projects with innovative and intelligent tools for monitoring and profiling Java and .NET applications.
-YourKit is the creator of [YourKit Java Profiler](https://www.yourkit.com/java/profiler/),
-[YourKit .NET Profiler](https://www.yourkit.com/.net/profiler/),
-and [YourKit YouMonitor](https://www.yourkit.com/youmonitor/).
+WorldEdit 遵循 [GPL v3](LICENSE.txt) 开源协议，本汉化分支同样适用。
